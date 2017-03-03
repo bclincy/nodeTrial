@@ -7,6 +7,7 @@ var router = express.Router();
 module.exports = router;
 //Load the models
 Genre = require('../models/genre');
+Books = require('../models/books')
 // Get homepage
 router.get('/', function (req, resp){
   resp.render('pages/index');
@@ -29,5 +30,22 @@ router.get('/api/genres', function (req, res) {
       throw err;
     }
     res.json(genres);
+  })
+});
+
+router.get('/api/books', function (req, res) {
+  Books.getBooks(function(err, books){
+    if(err) {
+      throw err;
+    }
+    res.json(books);
+  })
+});
+router.get('/api/books/:_id', function (req, res) {
+  Books.getBookById(req.params._id, function(err, book){
+    if(err) {
+      throw err;
+    }
+    res.json(books);
   })
 });

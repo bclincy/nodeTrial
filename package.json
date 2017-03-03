@@ -1,0 +1,20 @@
+{
+  "name": "bclincy",
+  "version": "1.0.0",
+  "description": "This is my web site built on Node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "brian clincy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "ejs": "^2.5.6",
+    "express": "^4.14.1",
+    "express-ejs-layouts": "^2.2.0",
+    "mongoose": "^4.8.5",
+    "nodemon": "^1.11.0",
+    "sir-trevor": "^0.6.4"
+  }
+}

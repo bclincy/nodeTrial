@@ -7,6 +7,7 @@ var port = 8080;
 // use express layouts;
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+app.use(bodyparser.json());
 // Connect to mongoose
 mongoose.connect('mongodb://localhost/datastore');
 var db = mongoose.connection;

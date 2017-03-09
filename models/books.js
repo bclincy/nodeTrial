@@ -32,16 +32,21 @@ var bookSchema = mongoose.Schema({
   },
    create_date:{
     type: Date,
-    default: Date.now
+    default: new mongoose.Types.ObjectId().getTimestamp()
   }
 });
 
 var Books = module.exports = mongoose.model('books', bookSchema);
 
-// Get genres
+// Get Book data
 module.exports.getBooks = function (callback, limit){
   Books.find(callback).limit(limit);
 }
 module.exports.getBookById = function (id, callback){
-  Books.find(id);
+  Books.findById(id, callback);
+}
+
+// Add Genre
+module.exports.addBook = function (book, callback){
+  Books.create(book, callback);
 }

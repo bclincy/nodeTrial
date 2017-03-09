@@ -8,7 +8,7 @@ var genreSchema = mongoose.Schema({
     reuqired: true
   }, create_date:{
     type: Date,
-    default: Date.now
+    default: new mongoose.Types.ObjectId().getTimestamp()
   }
 });
 
@@ -17,4 +17,10 @@ var Genre = module.exports = mongoose.model('Genre', genreSchema);
 // Get genres
 module.exports.getGenres = function (callback, limit){
   Genre.find(callback).limit(limit);
+}
+
+// Add Genre
+module.exports.addGenre = function (genre, callback){
+  console.log(genre);
+  Genre.create(genre, callback);
 }
